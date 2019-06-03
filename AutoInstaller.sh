@@ -22,11 +22,29 @@ apt update
 
 
 # List of packages to install.
-INSTALL_PACKAGES="avr-libc avra avrdude avrdude-doc avrp binutils-avr flashrom gcc-avr gdb-avr uisp git vim spotify-client chromium-browser arduino arduino-core ffmpeg ffmpeg-doc vlc"
+INSTALL_PACKAGES="avr-libc avra avrdude avrdude-doc avrp binutils-avr flashrom gcc-avr gdb-avr uisp vim spotify-client chromium-browser arduino arduino-core ffmpeg ffmpeg-doc vlc"
 
 # Install all of the packages listed above.
 apt install $INSTALL_PACKAGES -y
 
-# Apply changes with upgrade.
-apt upgrade 
+# Copy the autoinstaller 
+cp -r ~/AutoInstaller/conf/ ~
+cp ~/conf/.vimrc ~
+
+# Update the bashrc config 
+echo Backing up old .bashrc into ~/conf/.bashrc_OLD
+echo ...
+mv ~/.bashrc ~/.bashrc_OLD    # renaming the bashrc config
+cp ~/conf/.bashrc ~
+source ~/.bashrc    # apply the new .bashrc
+
+# Apply all changes with upgrade.
+apt upgrade -y
+apt autoremove -y
+source ~/.bashrc    # source bash rc again for changes to be applied.
+
+# End Auto Installation
+echo ------------------------
+echo Auto Installer complete 
+echo ------------------------
 
