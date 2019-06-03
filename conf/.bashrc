@@ -59,6 +59,7 @@ alias cvance='cd $CVANCE'
 # -----------------
 alias open='explorer.exe `wslpath -w "$1"`' 
 #alias mountUSB='sudo mount -t drvfs ($1): /mnt/($1)'
+alias USBeject='umount /media/christian/*'
 #alias minecraft='java -jar ~/Documents/Minecraft/Minecraft.jar'
 
 
