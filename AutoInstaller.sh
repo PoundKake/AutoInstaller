@@ -22,7 +22,7 @@ apt update
 
 
 # List of packages to install.
-INSTALL_PACKAGES="avr-libc avra avrdude avrdude-doc avrp binutils-avr flashrom gcc-avr gdb-avr uisp vim spotify-client chromium-browser arduino arduino-core ffmpeg ffmpeg-doc vlc"
+INSTALL_PACKAGES="avr-libc avra avrdude avrdude-doc avrp binutils-avr flashrom gcc-avr gdb-avr uisp vim spotify-client chromium-browser arduino arduino-core ffmpeg ffmpeg-doc vlc tmux"
 
 # Install all of the packages listed above.
 apt install $INSTALL_PACKAGES -y
