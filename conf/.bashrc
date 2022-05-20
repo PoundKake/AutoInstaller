@@ -6,8 +6,6 @@ PROMPT_COMMAND='echo -ne "\033]0; ${USER}: ${PWD}  \007"'
 
 # Variables:
 # -----------------
-export K2="/media/cvance/K2"
-
 
 # LS:
 #------------------
@@ -27,7 +25,6 @@ alias lscs='la *.cs'
 # Implicit Program Flags:
 #------------------
 alias pacman='pacman --color always'
-alias grep='grep --color=auto'
 alias df='df -h'
 alias clc='clear && source ~/.bashrc'
 alias ctagsR='ctags -R *'
@@ -35,33 +32,23 @@ alias ctagsR='ctags -R *'
 
 # Git Stuff 
 #------------------
-alias gita='git add'
-alias gitbr='git branch -av'
-alias gitch='git checkout'
-alias gitc='git commit'
-alias gitl='git log'
-alias gits='git status'
+alias ga='git add'
+alias gbr='git branch -av'
+alias gch='git checkout'
+alias gc='git commit'
+alias gl='git log'
+alias gs='git status'
 
 parse_git_branch(){
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-
-# Path:
+# Path Variables:
 # -----------------
-#alias cs780='cd ~/cs780'
-alias k2='cd /media/cvance/K2'
-alias currentProgram='cd $CURRENT_CS780_PROGRAM'
-alias cvance='cd $CVANCE'
-
 
 # Executables:
 # -----------------
-alias open='explorer.exe `wslpath -w "$1"`' 
-#alias mountUSB='sudo mount -t drvfs ($1): /mnt/($1)'
-alias USBeject='umount /media/christian/*'
-#alias minecraft='java -jar ~/Documents/Minecraft/Minecraft.jar'
-
+alias tmux='TERM=xterm-256color tmux'
 
 # Defaults: 
 # -----------------
@@ -114,3 +101,14 @@ LS_COLORS=$LS_COLORS:'di=0;93:fi=0;97:ex=1;97:'; export LS_COLORS
 #source /opt/ros/kinetic/setup.bash
 #source ~/catkin_ws/devel/setup.bash
 
+
+#_enable_color_support_of_ls_and_also_add_handy_aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors_-b)"
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+    
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
